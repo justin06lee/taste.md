@@ -77,8 +77,21 @@ background need the pair.
 |---|---|
 | Location | `assets/name.png`, `docs/name.png`, or `name.png` at the repo root — all three are in use; pick one and be consistent |
 | Format | **PNG.** GitHub proxies and sanitizes SVG; complex gradients and masks can render wrong or not at all. Keep the SVG as source, commit a rendered PNG for the README |
-| Display width | 300–360 for most marks; 180 for a tall or very dense one |
+| Shape | **Free-form, on transparency.** Not a rounded-square tile — that is an app-icon constraint and it does not apply here |
+| Aspect | Whatever the subject wants. `bmo.png` is 1007×875; the rest are square because their subjects are |
+| Display width | 300–360 for most; 180 for a tall or very dense one |
 | Render at | 2× the display width, so it stays sharp on retina |
+| Pixel size | 480×480 is the house common case; up to ~1250 for a detailed illustration |
+
+**Never wrap a README image in a squircle, tile, border, or gradient panel.** Those exist so an icon sits correctly in a Dock or a launcher. A README image sits on a page. Every header image in this collection is the subject alone on alpha:
+
+| Image | What it actually is |
+|---|---|
+| `bmo.png` | BMO standing in grass with bees and butterflies — 1007×875, no tile |
+| `shoko.png` | An ashtray overflowing with cigarette butts |
+| `caveira.png` | The operator's silencing gesture with the knife |
+
+Note what those have in common: each is a **specific, recognizable depiction of the thing the project is named after**, not an abstract mark. See Part 1, step 1 — research the reference, quote a concrete detail. An invented metaphor reads as filler here even more obviously than it does at icon size, because at 300px there is nowhere for it to hide.
 
 ## Section order
 

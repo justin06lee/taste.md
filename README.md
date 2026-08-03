@@ -40,23 +40,28 @@ Icons come out generic for three reasons, in order of how often they happen:
 | **Wrong canvas** | Crisp at 512, mud at 16 | Author at the largest target, bake in the platform grid, cut optical-size variants |
 | **One file, many jobs** | A white menu-bar glyph that vanishes in light mode | Separate artwork per job, with the template-image rules spelled out |
 
-The metaphor step is the whole thing. Before anything is drawn, two lists get written down — **function** (what it does, in plain verbs) and **identity** (the name, its origin, the joke) — then a single object that lands on **both**.
+The research step is the whole thing, and it comes before any drawing. If the project is named after anything — a character, a technique, a place, a piece of jargon — the skill **searches for it first**: what it is, who introduced it, what physical objects attach to it, what a fan would name first. Then it quotes a concrete detail from that research.
 
-> **Worked example.** Reze, a text expander named for a Chainsaw Man character.
-> *Function:* type two words, get a paragraph — small input, big output.
-> *Identity:* Reze is the Bomb Devil, pin in the neck.
-> *Intersection:* **a pulled grenade pin.** Pull a tiny pin, get an explosion.
-> It references the character and describes the app in one object.
+It does not invent a metaphor. Inventing feels faster and produces a plausible abstraction roughly nine times out of ten.
 
-The test is a single sentence naming both meanings. Cover only one and you have a pictogram (function alone) or fan art (identity alone). Both are forgettable.
+| Project | Reference | Detail quoted | Also describes the tool? |
+|---|---|---|---|
+| **reze** | Reze, the Bomb Devil | The pull-pin in her neck | Yes — pull a tiny pin, get an explosion |
+| **shoko.md** | Shoko Ieiri, the chain-smoker | An ashtray overflowing with butts | No, and it does not matter |
+| **caveira** | Caveira, the R6 operator | Her silencing gesture with the knife | Loosely |
+| **bmo** | BMO from Adventure Time | BMO, standing in grass | No |
 
-The mark at the top of this README came from the same steps: a tasting spoon, because you judge a whole dish from one small spoonful the way you judge a whole app from one small icon.
+Three of those four are pure quotation with no functional pun at all, and they land because the detail is unmistakable. Double-coding — where the quoted detail *also* says something about the software — is a bonus found inside the research, never a substitute for it.
+
+The failure mode it exists to prevent is seductive: an object that is a clever metaphor for the software but quotes nothing real. If the explanation is a pun rather than a citation, the mark goes back to step 1.
 
 ## Part 2 — READMEs
 
 The shape, in one line: **a centered mark, the name, a one-line tagline, a rule, then prose.** Nothing else above the fold.
 
 The skill settles the header image before writing anything — it looks for an existing asset in the repo, and if there isn't one it **asks whether you already have a logo** rather than inventing one silently. Only if you say so does it route into Part 1 and design a mark.
+
+**A README header image is not an app icon**, and treating it like one is what makes a page look like a product listing. No squircle, no tile, no border, no gradient panel — those constraints exist so an icon sits correctly in a Dock, and there is no Dock on a README. Draw the subject free-form on transparency, at whatever proportions it wants: `bmo.png` is 1007×875.
 
 Then: section order (what it does → install → quick start → reference → development → limitations → license), sentence-case headings, tables for anything shaped name-to-meaning, language tags on every fenced block, and a real `LICENSE` file — because a public repo without one is default copyright, and nobody may legally use or fork it whatever the README claims.
 
