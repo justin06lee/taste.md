@@ -1,0 +1,73 @@
+<!--
+  taste.md mark — original artwork, drawn by following this skill's own steps.
+
+  The mark is a tasting spoon: you judge a whole dish from one small spoonful,
+  the same way you judge a whole app from one small icon. That is the double
+  meaning — "taste" as discernment, and the icon as the sample that stands in
+  for everything behind it.
+
+  Authored at 1024x1024 with the macOS icon grid baked in (824x824 body inside a
+  100px margin, corner radius 185) so generation only ever downscales.
+
+  The spoon sits 22 degrees off-axis on purpose: a mark aligned to the
+  horizontal reads as clip art. Two hues only — warm amber and the cream of the
+  metal — over tinted near-blacks, so it survives a grayscale check.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14110f" />
+      <stop offset="0.55" stop-color="#33241a" />
+      <stop offset="1" stop-color="#5c3d24" />
+    </linearGradient>
+
+    <!-- Ambient warmth, kept low enough to read as light rather than as a shape. -->
+    <radialGradient id="warmth" cx="0.42" cy="0.34" r="0.72">
+      <stop offset="0" stop-color="#ffca7a" stop-opacity="0.28" />
+      <stop offset="0.6" stop-color="#e0913f" stop-opacity="0.08" />
+      <stop offset="1" stop-color="#e0913f" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Light from the upper left, so the metal shades itself and needs no
+         painted-on highlight. -->
+    <radialGradient id="silver" cx="0.34" cy="0.26" r="0.9">
+      <stop offset="0" stop-color="#fffaf4" />
+      <stop offset="0.55" stop-color="#f6e6d5" />
+      <stop offset="1" stop-color="#c9a789" />
+    </radialGradient>
+
+    <radialGradient id="drop" cx="0.36" cy="0.3" r="0.85">
+      <stop offset="0" stop-color="#ffb459" />
+      <stop offset="1" stop-color="#c2611c" />
+    </radialGradient>
+
+    <clipPath id="squircle">
+      <rect x="100" y="100" width="824" height="824" rx="185" />
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#squircle)">
+    <rect x="100" y="100" width="824" height="824" fill="url(#bg)" />
+    <rect x="100" y="100" width="824" height="824" fill="url(#warmth)" />
+  </g>
+
+  <g transform="rotate(-22 512 512)">
+    <!-- Handle first, so the bowl covers the join. The pinched neck and the
+         flare toward the tip are what separate a spoon from a magnifying
+         glass — without them this reads as a loupe at every size. -->
+    <path d="M490 450 C476 560 472 660 470 812 Q512 840 554 812
+             C552 660 548 560 534 450 Z" fill="url(#silver)" />
+
+    <!-- Bowl: clearly taller than wide. A circle here is a magnifier. -->
+    <ellipse cx="512" cy="330" rx="126" ry="168" fill="url(#silver)" />
+
+    <!-- The spoonful itself. -->
+    <ellipse cx="512" cy="326" rx="76" ry="108" fill="url(#drop)" />
+
+    <ellipse cx="478" cy="282" rx="20" ry="30" fill="#fff6e8" opacity="0.55"
+             transform="rotate(-18 478 282)" />
+  </g>
+
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="none"
+        stroke="#ffffff" stroke-opacity="0.14" stroke-width="3" />
+</svg>
