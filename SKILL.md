@@ -1,6 +1,6 @@
 ---
 name: taste
-description: Use when shaping how a project looks to whoever encounters it — its icon or its README. Covers app icons, favicons, menu-bar/tray/taskbar glyphs, maskable PWA icons, .icns/.ico/.iconset bundles and full multi-size sets; and README design — the centered header block with a mark, section order, markdown conventions, and the license footer. Triggers on "make an icon", "app icon", "logo for my app", "favicon", "tray icon", "generate all the icon sizes", "my icon looks generic/blurry at small sizes", "write a README", "make the README look good", "my README is ugly", "add a header image", and on preparing a repo to go public. Enforces original artwork, no badges, no emoji.
+description: Use when shaping how a project looks to whoever encounters it — its icon or its README. Covers app icons, favicons, menu-bar/tray/taskbar glyphs, maskable PWA icons, .icns/.ico/.iconset bundles and full multi-size sets; and README design — the centered header block with a mark, section order, markdown conventions, and the license footer. Triggers on "make an icon", "app icon", "logo for my app", "favicon", "tray icon", "generate all the icon sizes", "my icon looks generic/blurry at small sizes", "write a README", "make the README look good", "my README is ugly", "add a header image", and on preparing a repo to go public. Researches whatever the project is named after and quotes a concrete detail from it rather than inventing a metaphor. Enforces original artwork, no badges, no emoji.
 ---
 
 # taste
@@ -35,52 +35,66 @@ Bad icons fail for three reasons, in this order of frequency:
 2. The artwork was authored at the wrong size and downscaled into mud.
 3. One file was reused for jobs that need genuinely different files.
 
-Every step below exists to prevent one of those. Work them in order; step 2 is the one that produces the reaction *"how did you even do that"*, and it is the one most likely to get skipped.
+Every step below exists to prevent one of those. Work them in order. Step 1 is the one that produces the reaction *"how did you even do that"* — and it is the one most likely to get skipped, because inventing feels faster than looking things up. It isn't; it just fails later.
 
 ## Rules specific to icons
 
-1. **The mark carries two meanings.** See step 2. This is the whole of Part 1.
+1. **Quote a researched detail; do not invent a metaphor.** See steps 1 and 2. This is the whole of Part 1, and the failure mode it prevents is the most common one by far.
 2. **Different jobs get different artwork.** A menu-bar glyph is not the app icon at 18px. A 16px favicon is not the 512px one downscaled.
-3. **When the user offers a reference** ("make it look like X"), treat it as a source of **meaning**, never a source of pixels. Riff on what it means; draw it yourself.
+3. **When the user offers a reference** ("it's named after X"), that reference is the *subject*, not a mood board. Go find out what X actually looks like, then draw that yourself.
 4. **If someone has to open Photoshop to change the icon, the pipeline is wrong.** One command regenerates everything from the SVG.
 
-## Step 1 — Interrogate before drawing
+## Step 1 — Research the reference before drawing anything
 
-Never start from "make an icon for X." Get four answers first — ask the user if they're present, otherwise dig them out of the repo (`README`, the `description` field in `package.json` / `Cargo.toml` / `pyproject.toml`, the actual entry point):
+**This step is not optional and it comes first.** Working from a name plus imagination produces a plausible abstraction roughly nine times out of ten. Working from a specific, researched, concrete detail produces something people react to.
+
+If the project name points at *anything* external — a character, a technique, an operator, a myth, a place, a piece of domain jargon — **search the web for it before drawing.** Multiple sources; do not stop at the first summary.
+
+What you are looking for, in priority order:
+
+| Find out | Because |
+|---|---|
+| **What is the single most recognizable thing about it?** | This is almost always the mark. What would a fan name first? |
+| **Who or what introduced it, and in what scene?** | Specific moments give you specific objects — a weapon, a stance, a prop |
+| **What physical objects are attached to it?** | Objects draw; concepts don't |
+| **What are the rules of its world?** | Sometimes the mechanic is more visual than the character |
+| **What does it actually look like?** | Colour, shape, silhouette — get this from sources, not from guessing |
+
+Then name the detail you're quoting and where you got it. If you cannot point at a source, you are inventing again.
+
+> **Worked example — `simpledomain`.** The name is the Jujutsu Kaisen technique. Searching turns up: it is a *simplified* domain, a defensive barrier that neutralizes an enemy's domain; it is introduced by **Kasumi Miwa**, a sword user, whose version is called *Shin: Ryuiki* and is drawn as a circular barrier struck out from her katana draw. That research yields concrete candidates — the katana draw, the barrier ring at the moment of the cut, Miwa's stance — instead of the abstraction "a circle meaning containment."
+
+**When the name has no external referent** (a coined word, a plain English noun), do not fall back on a conceptual pun — that is exactly the failure mode. Instead, research the *domain the tool works in* and quote a specific real object from it: the actual instrument practitioners use, the actual artifact the work produces. A specific real object always beats a clever abstract one.
+
+Two practical questions to settle in the same pass, since they constrain everything downstream:
 
 | Question | What it decides |
 |---|---|
-| What does it **do**, in verbs? | Half the metaphor |
-| What is it **named** after, and why? | The other half |
-| Where does it **appear**? | Menu bar, Dock, browser tab, and home screen need different artwork |
-| What is the **smallest** place it appears? | The detail budget for everything |
+| Where does it **appear**? | Menu bar, Dock, browser tab, home screen, and README header all need different artwork |
+| What is the **smallest** place it appears? | The detail budget for the whole design |
 
-That last one governs everything downstream. An icon that only ever appears at 512px can carry fine linework. One that lives in a 16px favicon can carry roughly three shapes.
+An icon that only ever appears at 512px can carry fine linework. One that lives in a 16px favicon can carry about three shapes. A README header image has no upper bound and no shape constraint at all — see Part 2.
 
-## Step 2 — Find the double meaning
+## Step 2 — Pick the detail, then check whether it double-codes
 
-Do this **in writing, before drawing anything.** Two columns:
+From the research, list the concrete candidates and rank them by **how immediately someone who knows the reference would recognize it**. Take the top one.
 
-- **Function** — what the thing does, in plain verbs. *Small input, big output. Watches for changes. Routes between things. Remembers what you forgot.*
-- **Identity** — the name, its origin, the reference, the in-joke, the pun, the feeling.
+Then — and only then — check whether it *also* says something about what the software does. If it does, that is a bonus worth having. **If it doesn't, ship it anyway.** Recognition beats cleverness.
 
-Now hunt for a **single physical object or gesture that lands on both lists.** That intersection is the mark.
+The evidence for that ordering, from marks that landed:
 
-Worked example — Reze, a text expander named after a Chainsaw Man character:
+| Project | Reference | Detail quoted | Also describes the tool? |
+|---|---|---|---|
+| **reze** | Reze, the Bomb Devil | The pull-pin in her neck | Yes — pull a tiny pin, get an explosion |
+| **shoko.md** | Shoko Ieiri, the chain-smoker | An ashtray overflowing with butts | No, and it does not matter |
+| **caveira** | Caveira, the R6 operator | Her silencing gesture with the knife | Loosely |
+| **bmo** | BMO from Adventure Time | BMO, standing in grass | No |
 
-- *Function*: type two words, get a paragraph. **Small input, big output.**
-- *Identity*: Reze is the Bomb Devil — pin in the neck.
-- *Intersection*: **a pulled grenade pin.** Pull a tiny pin, get an explosion. It references the character and describes the app in one object.
+Three of those four are pure quotation with no functional pun at all, and they work because the detail is unmistakable. The one that double-codes is better still — but the double meaning was found *inside* the research, not substituted for it.
 
-**The test:** state the mark in one sentence that names both meanings. *"A bomb wearing a pulled pin — it nods at the Bomb Devil, and it's literally what the app does."* If your sentence only covers one meaning, you have a pictogram (function only) or fan art (identity only). Both are forgettable. Keep hunting.
+**The failure mode, stated plainly, because it is seductive:** inventing an object that is a clever metaphor for the software but quotes nothing real. A tasting spoon for a skill called "taste." A cursor inside a ring for a tool that contains focus. Both are legible, both are competent, and both are forgettable, because there is nothing behind them to recognize. If your mark's explanation is a pun rather than a citation, go back to step 1.
 
-Some ways through when the intersection isn't obvious:
-
-- **No reference to work with** (a plain utility, a coined name): source the second meaning from the *feeling* the tool produces — relief, speed, precision, quiet — or find a structural pun in the letterform.
-- **The obvious object is taken** (a shield for security, a rocket for launch): go one level more specific. Not "a shield" but "a shield with the boss's dents already in it."
-- **Genuinely only one meaning available**: then make that one meaning unusually specific. Not "a database" but "a stack of drawers with exactly one pulled open." Specificity is the fallback for duality.
-
-Do not proceed to drawing until this sentence exists.
+Write the sentence before drawing: **"It's <the detail>, from <the source>."** Add "— which also happens to be what the app does" only if that is genuinely true.
 
 ## Step 3 — Silhouette before color
 
@@ -152,9 +166,9 @@ Commands and per-framework recipes in `references/pipeline.md`. Two rules:
 - [ ] Silhouette and grayscale still readable
 - [ ] Every generated raster is reproducible from the committed SVG by one command
 - [ ] No sourced or traced third-party artwork anywhere in the tree
-- [ ] The double-meaning sentence from step 2 is written down — in the SVG's header comment, so the next person understands the mark
+- [ ] The citation sentence from step 2 is written down — in the SVG's header comment, naming the detail and its source, so the next person understands the mark
 
-That last one matters more than it looks. Put a comment at the top of the SVG explaining what the mark means and why the numbers are what they are. It is the difference between an icon someone can maintain and an icon nobody dares touch.
+That last one matters more than it looks. Put a comment at the top of the SVG explaining what the mark quotes, where it came from, and why the numbers are what they are. It is the difference between an icon someone can maintain and an icon nobody dares touch.
 
 ## Anti-patterns — do not ship these
 
@@ -176,9 +190,23 @@ Never write the README around a missing image and never generate one silently. I
 
 1. **Look for one already in the repo** — `assets/*.png|svg`, `docs/*.png`, `<name>.png` at the root, anything matching `*logo*` or `*readme*`. If it exists, use it.
 2. **If there is none, ask the user.** Verbatim intent: *"Do you already have a logo or image for the header, or should I make one?"* They may have a mark from elsewhere, a commissioned asset, or a strong opinion. Asking costs one turn; guessing wrong wastes the whole design.
-3. **Only if they say make one, go to Part 1** and design an original mark, then render a PNG for the README.
+3. **Only if they say make one, go to Part 1** — the research step especially — and design from a quoted detail, then render a PNG for the README.
 
-**Render a PNG for the README even though the SVG is the source.** GitHub proxies and sanitizes SVGs, and complex ones — gradients, masks, clip paths — can render wrong or not at all. Commit the SVG as source and a rendered PNG at 2× the display width.
+**A README header image is not an app icon.** This is the most common mistake and it makes the page look like a product listing instead of a project:
+
+| | App icon | README header image |
+|---|---|---|
+| Shape | Rounded-square grid, mandatory | **Anything.** Free-form, and often not square at all |
+| Background | Fills the tile | **Transparent.** It sits on the page, not in a box |
+| Framing | Squircle, margins, safe zone | None. No tile, no border, no grid |
+| Detail budget | Must survive 16px | Displays at ~300px and never shrinks — carry as much detail as it deserves |
+| Subject | A reduced mark | The referenced thing, depicted properly |
+
+The house examples: `bmo.png` is BMO standing in grass with bees, 1007×875 with alpha — not square, no tile. `shoko.png` is an overflowing ashtray. `caveira.png` is the operator's silencing gesture. None of them are wrapped in a rounded rectangle, because none of them are icons.
+
+So: draw the subject on transparency, sized to its own natural proportions. Do not add a tile, a squircle, a gradient panel, or a border — those exist to make an icon sit correctly in a Dock, and there is no Dock here.
+
+**Render a PNG even though the SVG is the source.** GitHub proxies and sanitizes SVGs, and complex ones — gradients, masks, clip paths — can render wrong or not at all. Commit the SVG as source and a PNG at 2× the display width. Observed house sizes: 480×480 is the common case, up to ~1250 for a detailed one.
 
 ## Step 2 — Build the header block
 
