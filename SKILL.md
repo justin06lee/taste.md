@@ -40,9 +40,10 @@ Every step below exists to prevent one of those. Work them in order. Step 1 is t
 ## Rules specific to icons
 
 1. **Quote a researched detail; do not invent a metaphor.** See steps 1 and 2. This is the whole of Part 1, and the failure mode it prevents is the most common one by far.
-2. **Different jobs get different artwork.** A menu-bar glyph is not the app icon at 18px. A 16px favicon is not the 512px one downscaled.
-3. **When the user offers a reference** ("it's named after X"), that reference is the *subject*, not a mood board. Go find out what X actually looks like, then draw that yourself.
-4. **If someone has to open Photoshop to change the icon, the pipeline is wrong.** One command regenerates everything from the SVG.
+2. **Few shapes, always.** Hand-authored SVG has a hard detail ceiling — you are placing coordinates, not painting. Aim for the fewest shapes that make the subject unmistakable, then remove one more. Detail that would be cheap in a rendered illustration comes out stiff and fussy here.
+3. **Different jobs get different artwork.** A menu-bar glyph is not the app icon at 18px. A 16px favicon is not the 512px one downscaled.
+4. **When the user offers a reference** ("it's named after X"), that reference is the *subject*, not a mood board. Go find out what X actually looks like, then draw that yourself.
+5. **If someone has to open Photoshop to change the icon, the pipeline is wrong.** One command regenerates everything from the SVG.
 
 ## Step 1 — Research the reference before drawing anything
 
@@ -77,9 +78,16 @@ An icon that only ever appears at 512px can carry fine linework. One that lives 
 
 ## Step 2 — Pick the detail, then check whether it double-codes
 
-From the research, list the concrete candidates and rank them by **how immediately someone who knows the reference would recognize it**. Take the top one.
+From the research, list the concrete candidates and rank them on two things:
 
-Then — and only then — check whether it *also* says something about what the software does. If it does, that is a bonus worth having. **If it doesn't, ship it anyway.** Recognition beats cleverness.
+1. **How immediately someone who knows the reference would recognize it.**
+2. **How well it reduces.** Can you draw it in five or six shapes and still have it read? A single object with a strong outline reduces beautifully. A character in a pose, holding a thing, in a scene does not — that is an illustration, and hand-authored SVG will make it stiff.
+
+Take the candidate that scores on both. When they conflict, **the reducible one usually wins**, because a clean simple mark beats a fussy accurate one at every size it will actually be seen at.
+
+> Reze's pin is the model: one object, a handful of shapes, unmistakable. The Remy mark on this repo is the honest counterweight — the research is right and it is likeable, but a head plus an arm plus a spoon plus scattered bursts is a scene, and it carries more detail than hand-written SVG does gracefully. Given the same research, the pin-equivalent would have been the bursts alone, or the spoon with the bursts blooming off it.
+
+Then — and only then — check whether the detail *also* says something about what the software does. If it does, that is a bonus worth having. **If it doesn't, ship it anyway.** Recognition beats cleverness.
 
 The evidence for that ordering, from marks that landed:
 

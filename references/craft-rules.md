@@ -5,6 +5,37 @@ decisions that separate "clearly deliberate" from "clearly generated."
 
 ---
 
+## Restraint, and the SVG detail ceiling
+
+Hand-authored SVG is not painting. Every curve is a coordinate you reasoned
+about, so detail costs enormously more here than in a rendered illustration —
+and it *looks* like it cost more, which is the problem. Fussy hand-placed detail
+reads as stiff; the same subject reduced to six confident shapes reads as
+designed.
+
+So the medium has a ceiling, and the right response is to design under it rather
+than fight it:
+
+| Cheap in SVG, and reads well | Expensive in SVG, and reads badly |
+|---|---|
+| One object with a strong outline | A character in a pose holding a thing |
+| Flat fills, one gradient each | Stacked soft shading |
+| Two or three big forms | Many small overlapping parts |
+| A bold repeated motif | Hand-placed texture, fur, individual hairs |
+| A silhouette with one cut-out | Fingers, whiskers, teeth, scattered confetti |
+
+**The reduction test.** Draw it, then delete one element. Still recognizable?
+Delete another. Keep going until removing something breaks it, then put that
+last one back. Whatever survives is the mark. Almost every first draft has two
+or three elements that are doing nothing but proving effort.
+
+**When the subject genuinely needs richness** — a full character, an
+environment, painterly depth — that is not a reason to grind harder in SVG. It
+is a signal to say so and ask whether a real illustration is wanted instead.
+Producing a stiff vector approximation of a rendered image serves nobody, and
+the header-image question in Part 2 exists precisely so this comes up before
+the work rather than after.
+
 ## Form
 
 **Fewer, bigger shapes.** Five distinct elements is already a lot. Every element

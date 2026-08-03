@@ -92,6 +92,7 @@ references/readme-style.md      header blocks, section order, full template
 ## House rules it enforces
 
 - **Never source, always invent.** No downloaded, traced, or embedded third-party artwork — it is someone else's copyright in your repo, and it caps the work at retrieval.
+- **Few shapes, always.** Hand-authored SVG has a hard detail ceiling. Aim for the fewest shapes that make the subject unmistakable, then remove one more. If the subject genuinely needs painterly richness, the skill says so and asks — rather than grinding out a stiff vector approximation.
 - **Vector is the source of truth.** The SVG is committed and hand-edited; every raster is generated and never touched by hand.
 - **Render each size from the SVG.** Never downscale a PNG to make another PNG.
 - **Different jobs get different files.** A menu-bar glyph is not the app icon at 18px.
