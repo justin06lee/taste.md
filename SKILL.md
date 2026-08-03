@@ -1,9 +1,31 @@
 ---
 name: taste
-description: Use when designing or generating any icon — app icon, favicon, menu-bar/tray/taskbar glyph, PWA or maskable icon, .icns/.ico/.iconset bundle, or a full multi-size icon set. Triggers on "make an icon", "app icon", "logo for my app", "favicon", "tray icon", "menu bar icon", "taskbar icon", "generate all the icon sizes", "my icon looks blurry/generic/bad at small sizes", and on adding an icon to a Tauri, Electron, PWA, iOS, Android, or web project. Covers inventing an original mark and rendering every platform size from one committed SVG source.
+description: Use when shaping how a project looks to whoever encounters it — its icon or its README. Covers app icons, favicons, menu-bar/tray/taskbar glyphs, maskable PWA icons, .icns/.ico/.iconset bundles and full multi-size sets; and README design — the centered header block with a mark, section order, markdown conventions, and the license footer. Triggers on "make an icon", "app icon", "logo for my app", "favicon", "tray icon", "generate all the icon sizes", "my icon looks generic/blurry at small sizes", "write a README", "make the README look good", "my README is ugly", "add a header image", and on preparing a repo to go public. Enforces original artwork, no badges, no emoji.
 ---
 
 # taste
+
+How a project looks to whoever finds it: the mark, and the page that mark sits on top of.
+
+Two jobs, sharing one set of principles:
+
+| Job | Go to |
+|---|---|
+| An icon, favicon, tray glyph, or full multi-size set | **Part 1** |
+| A README — header block, structure, style | **Part 2** |
+
+A README needs a mark, so Part 2 routes into Part 1 when there isn't one yet. Doing an icon alone is common; doing a README without an image is not — the header image is the whole reason these pages look finished.
+
+## Shared non-negotiables
+
+- **Invent, never source.** No downloaded, traced, or embedded third-party artwork. It is someone else's copyright in the user's repo, and it caps the work at *retrieval* when invention has a far higher ceiling.
+- **Vector is the source of truth.** SVG committed and hand-edited; every raster generated and never hand-edited.
+- **No decoration that carries no information.** No badges, no emoji, no ornament for its own sake. If it isn't telling the reader something, it is in the way.
+- **Never reuse a previous project's palette, silhouette, or motif.** Each project gets its own.
+
+---
+
+# Part 1 — Icons and marks
 
 Invent an original mark that means two things at once, then render every platform size from a single committed SVG.
 
@@ -15,13 +37,12 @@ Bad icons fail for three reasons, in this order of frequency:
 
 Every step below exists to prevent one of those. Work them in order; step 2 is the one that produces the reaction *"how did you even do that"*, and it is the one most likely to get skipped.
 
-## Non-negotiables
+## Rules specific to icons
 
-1. **Invent, never source.** Do not download, trace, embed, or reproduce existing artwork — characters, logos, stock marks, another app's icon. It is someone else's copyright sitting in the user's bundle, and it caps the work at *retrieval* when the ceiling on *invention* is far higher. When the user offers a reference ("make it look like X"), treat the reference as a source of **meaning**, not a source of pixels.
-2. **The mark carries two meanings.** See step 2. This is the whole skill.
-3. **Vector is the source of truth.** The `.svg` is committed and hand-edited. Every raster is generated and never hand-edited. If someone has to open Photoshop to change the icon, the pipeline is wrong.
-4. **Different jobs get different artwork.** A menu-bar glyph is not the app icon at 18px. A 16px favicon is not the 512px one downscaled.
-5. **Never reuse a previous project's palette, silhouette, or motif.** Each mark comes from *this* project's meanings. If two icons you made look related, one of them is wrong.
+1. **The mark carries two meanings.** See step 2. This is the whole of Part 1.
+2. **Different jobs get different artwork.** A menu-bar glyph is not the app icon at 18px. A 16px favicon is not the 512px one downscaled.
+3. **When the user offers a reference** ("make it look like X"), treat it as a source of **meaning**, never a source of pixels. Riff on what it means; draw it yourself.
+4. **If someone has to open Photoshop to change the icon, the pipeline is wrong.** One command regenerates everything from the SVG.
 
 ## Step 1 — Interrogate before drawing
 
@@ -140,3 +161,72 @@ That last one matters more than it looks. Put a comment at the top of the SVG ex
 Stock ideas that signal no thought happened: a gradient blob with a lightning bolt; a generic rocket for "launch"; a brain wired with circuit traces for anything AI; a hexagon with a letter in it; a bare chat bubble; a magnifying glass over nothing; a gear for "settings" as the *app's own* identity.
 
 Craft failures: text or initials as the whole mark; photographic realism; more than two hues; hairline strokes; drop shadows; a bevel-and-emboss treatment; the same artwork stretched across every size; a white menu-bar glyph on macOS; an iOS icon with the corners pre-rounded.
+
+---
+
+# Part 2 — READMEs
+
+The README is the whole product for anyone who hasn't run it yet. Full style guide, copy-paste header blocks, and a complete template in `references/readme-style.md` — read it before writing.
+
+The shape, in one picture: **a centered mark, the name, a one-line tagline, a rule, then prose.** Nothing else above the fold. That opening is what makes these pages read as finished rather than as notes.
+
+## Step 1 — Settle the header image first
+
+Never write the README around a missing image and never generate one silently. In order:
+
+1. **Look for one already in the repo** — `assets/*.png|svg`, `docs/*.png`, `<name>.png` at the root, anything matching `*logo*` or `*readme*`. If it exists, use it.
+2. **If there is none, ask the user.** Verbatim intent: *"Do you already have a logo or image for the header, or should I make one?"* They may have a mark from elsewhere, a commissioned asset, or a strong opinion. Asking costs one turn; guessing wrong wastes the whole design.
+3. **Only if they say make one, go to Part 1** and design an original mark, then render a PNG for the README.
+
+**Render a PNG for the README even though the SVG is the source.** GitHub proxies and sanitizes SVGs, and complex ones — gradients, masks, clip paths — can render wrong or not at all. Commit the SVG as source and a rendered PNG at 2× the display width.
+
+## Step 2 — Build the header block
+
+Two variants in `references/readme-style.md`; both are in house use, pick per repo. Display width 300–360 for most marks, 180 for a tall or dense one.
+
+One trap worth stating here because it silently breaks the page: **markdown inside an HTML block only parses when blank lines separate it from the tags.** Without a blank line before `# name` inside a `<div align="center">`, GitHub renders a literal `# name`. If the title comes out as visible hash marks, that is why.
+
+## Step 3 — Write the opening paragraph
+
+Straight after the rule, with no heading above it. One to three sentences expanding the tagline into what the thing does and who it's for. This is the paragraph people actually read.
+
+Lead with the problem when the problem isn't self-evident, and **name the tradeoff** — *"no LLM-as-judge, just exact checks"*, *"only timestamps change"*. Stating a boundary builds more trust than listing features.
+
+## Step 4 — Order the sections
+
+What it does → Install → Quick start → Reference (commands, flags, configuration, architecture) → Development → Notes and limitations → **License, last, always**.
+
+Skip what doesn't apply. Don't reorder what does.
+
+## Step 5 — Apply the markdown conventions
+
+Sentence-case headings, consistent throughout. Tables for anything shaped name-to-meaning — they compress better than bullets and stay scannable. Fenced blocks always carry a language tag, with comments on the non-obvious lines *inside* the block. Stop at `###`; deeper nesting means it should have been its own document.
+
+## Step 6 — Close with the license
+
+```markdown
+## License
+
+MIT — see [LICENSE](LICENSE).
+```
+
+And an actual `LICENSE` file at the repo root. **A public repo without one is default copyright** — nobody may legally use, fork, or contribute, whatever the README says. GitHub detects the file and surfaces the license in the sidebar; that detection is what makes it real to anyone browsing. Check for it whenever a repo is going public.
+
+## Banned in READMEs
+
+**Badges.** No shields.io, no build-status pills, no vanity counters. They are noise, they rot the moment a number changes, and a stack of them pushes the actual explanation below the fold.
+
+**Emoji.** Not in headings, not in body text, not as bullets. They make headings harder to scan, break anchor links, and read as decoration where the words should be doing the work.
+
+Also out: centered body text (only the header block is centered); a hand-written table of contents (GitHub generates one from the headings); "Made with love" and "Contributions welcome!" boilerplate; screenshots of terminal output where a code block would be searchable and copyable; marketing adjectives like *blazingly fast* and *powerful* — state the mechanism and let the reader conclude it.
+
+---
+
+## Reference files
+
+| File | Contents |
+|---|---|
+| `references/platform-specs.md` | Every icon size, format, and grid rule, per platform |
+| `references/craft-rules.md` | Form, colour, light, legibility, small-size adaptation |
+| `references/pipeline.md` | Render commands, framework wiring, what to commit |
+| `references/readme-style.md` | Header blocks, section order, markdown conventions, full template |
