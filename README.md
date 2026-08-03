@@ -55,6 +55,8 @@ Three of those four are pure quotation with no functional pun at all, and they l
 
 The failure mode it exists to prevent is seductive: an object that is a clever metaphor for the software but quotes nothing real. If the explanation is a pun rather than a citation, the mark goes back to step 1.
 
+The image at the top of this README is the rule applied to itself. It's Remy mid-taste, eyes shut, ringed by the synesthesia bursts Michael Gagné animated for *Ratatouille* — yellow rings of light for cheese, pink spirals for strawberry. The cool grey against warm bursts is the film's own palette logic: Brad Bird's team made the rat world cool and the human world warm, so Remy always reads as outside the warmth he wants into. Every one of those decisions came from research, not invention. The first attempt at this mark was a tasting spoon on its own — a pun, quoting nothing, and forgettable.
+
 ## Part 2 — READMEs
 
 The shape, in one line: **a centered mark, the name, a one-line tagline, a rule, then prose.** Nothing else above the fold.

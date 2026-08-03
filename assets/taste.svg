@@ -1,73 +1,146 @@
 <!--
-  taste.md mark — original artwork, drawn by following this skill's own steps.
+  taste.md mark — original artwork.
 
-  The mark is a tasting spoon: you judge a whole dish from one small spoonful,
-  the same way you judge a whole app from one small icon. That is the double
-  meaning — "taste" as discernment, and the icon as the sample that stands in
-  for everything behind it.
+  It's Remy mid-taste — eyes shut, spoon at his mouth — ringed by the
+  synesthesia bursts from Ratatouille (2007).
 
-  Authored at 1024x1024 with the macOS icon grid baked in (824x824 body inside a
-  100px margin, corner radius 185) so generation only ever downscales.
+  Researched rather than invented, which is what this skill now requires:
+    · Remy is bluish-gray with pink ears, nose, paws and tail, and buck teeth.
+      The cool tone is deliberate — Brad Bird's team made the rat world cool and
+      the human world warm, so Remy always reads as outside the warmth he wants
+      into. That split is the palette here: a cool gray rat inside warm bursts.
+    · The bursts are Michael Gagné's, animated for the tasting scenes. Gagné is
+      a synesthete; the director asked him to visualize flavour directly.
+      Yellow circles of light are cheese, pink spirals that pop into sparked
+      lines are strawberry, and the two together explode orange and red.
 
-  The spoon sits 22 degrees off-axis on purpose: a mark aligned to the
-  horizontal reads as clip art. Two hues only — warm amber and the cream of the
-  metal — over tinted near-blacks, so it survives a grayscale check.
+  This is a README header image, NOT an app icon, so it is deliberately
+  free-form on transparency at its own proportions — no squircle, no tile, no
+  grid. Those constraints exist so an icon sits correctly in a Dock, and a
+  README has no Dock.
 -->
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="820" viewBox="0 0 860 820">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#14110f" />
-      <stop offset="0.55" stop-color="#33241a" />
-      <stop offset="1" stop-color="#5c3d24" />
+    <!-- Light from the upper left, so the fur shades itself. -->
+    <radialGradient id="fur" cx="0.34" cy="0.24" r="0.92">
+      <stop offset="0" stop-color="#a2b1c8" />
+      <stop offset="0.55" stop-color="#7d8ba3" />
+      <stop offset="1" stop-color="#59667c" />
+    </radialGradient>
+
+    <radialGradient id="furBack" cx="0.4" cy="0.3" r="0.9">
+      <stop offset="0" stop-color="#6f7d94" />
+      <stop offset="1" stop-color="#4d5a70" />
+    </radialGradient>
+
+    <radialGradient id="skin" cx="0.35" cy="0.28" r="0.9">
+      <stop offset="0" stop-color="#f2b8bf" />
+      <stop offset="1" stop-color="#d2848f" />
+    </radialGradient>
+
+    <linearGradient id="metal" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#f2f6fb" />
+      <stop offset="0.5" stop-color="#c3cfdd" />
+      <stop offset="1" stop-color="#8d9db1" />
     </linearGradient>
 
-    <!-- Ambient warmth, kept low enough to read as light rather than as a shape. -->
-    <radialGradient id="warmth" cx="0.42" cy="0.34" r="0.72">
-      <stop offset="0" stop-color="#ffca7a" stop-opacity="0.28" />
-      <stop offset="0.6" stop-color="#e0913f" stop-opacity="0.08" />
-      <stop offset="1" stop-color="#e0913f" stop-opacity="0" />
+    <radialGradient id="broth" cx="0.35" cy="0.3" r="0.85">
+      <stop offset="0" stop-color="#ffe6a8" />
+      <stop offset="1" stop-color="#e8b45c" />
     </radialGradient>
-
-    <!-- Light from the upper left, so the metal shades itself and needs no
-         painted-on highlight. -->
-    <radialGradient id="silver" cx="0.34" cy="0.26" r="0.9">
-      <stop offset="0" stop-color="#fffaf4" />
-      <stop offset="0.55" stop-color="#f6e6d5" />
-      <stop offset="1" stop-color="#c9a789" />
-    </radialGradient>
-
-    <radialGradient id="drop" cx="0.36" cy="0.3" r="0.85">
-      <stop offset="0" stop-color="#ffb459" />
-      <stop offset="1" stop-color="#c2611c" />
-    </radialGradient>
-
-    <clipPath id="squircle">
-      <rect x="100" y="100" width="824" height="824" rx="185" />
-    </clipPath>
   </defs>
 
-  <g clip-path="url(#squircle)">
-    <rect x="100" y="100" width="824" height="824" fill="url(#bg)" />
-    <rect x="100" y="100" width="824" height="824" fill="url(#warmth)" />
+  <!-- ── Gagné's bursts, behind everything ───────────────────────────────
+       Cheese yellow as rings of light, strawberry pink as spirals that pop
+       into sparked lines, and the orange-red splash where the two meet. -->
+  <g fill="none" stroke-linecap="round">
+    <circle cx="300" cy="232" r="86" stroke="#ffd76a" stroke-width="13" opacity="0.5" />
+    <circle cx="300" cy="232" r="126" stroke="#ffd76a" stroke-width="7" opacity="0.28" />
+    <circle cx="646" cy="286" r="58" stroke="#ffcf5c" stroke-width="11" opacity="0.45" />
+    <circle cx="646" cy="286" r="92" stroke="#ffcf5c" stroke-width="6" opacity="0.24" />
+    <circle cx="150" cy="470" r="46" stroke="#ffd76a" stroke-width="9" opacity="0.32" />
+
+    <!-- Strawberry spirals -->
+    <path d="M690 150 Q756 132 762 196 Q766 254 704 258 Q656 260 654 216"
+          stroke="#ff8fb0" stroke-width="14" opacity="0.62" />
+    <path d="M118 302 Q62 292 62 344 Q62 392 116 392"
+          stroke="#ff8fb0" stroke-width="12" opacity="0.45" />
+    <path d="M556 116 Q604 96 640 118" stroke="#ff9fbc" stroke-width="10" opacity="0.4" />
   </g>
 
-  <g transform="rotate(-22 512 512)">
-    <!-- Handle first, so the bowl covers the join. The pinched neck and the
-         flare toward the tip are what separate a spoon from a magnifying
-         glass — without them this reads as a loupe at every size. -->
-    <path d="M490 450 C476 560 472 660 470 812 Q512 840 554 812
-             C552 660 548 560 534 450 Z" fill="url(#silver)" />
-
-    <!-- Bowl: clearly taller than wide. A circle here is a magnifier. -->
-    <ellipse cx="512" cy="330" rx="126" ry="168" fill="url(#silver)" />
-
-    <!-- The spoonful itself. -->
-    <ellipse cx="512" cy="326" rx="76" ry="108" fill="url(#drop)" />
-
-    <ellipse cx="478" cy="282" rx="20" ry="30" fill="#fff6e8" opacity="0.55"
-             transform="rotate(-18 478 282)" />
+  <!-- Sparks: the orange-red splash where strawberry meets cheese. -->
+  <g fill="#ff9a4d">
+    <path d="M214 138 L226 176 L264 188 L226 200 L214 238 L202 200 L164 188 L202 176 Z" opacity="0.8" />
+    <path d="M742 396 L751 424 L779 433 L751 442 L742 470 L733 442 L705 433 L733 424 Z" opacity="0.66" />
+    <path d="M474 96 L481 118 L503 125 L481 132 L474 154 L467 132 L445 125 L467 118 Z" opacity="0.55" />
+    <path d="M96 622 L104 646 L128 654 L104 662 L96 686 L88 662 L64 654 L88 646 Z" opacity="0.42" />
+  </g>
+  <g fill="#ff6f8f">
+    <circle cx="800" cy="238" r="13" opacity="0.5" />
+    <circle cx="66" cy="212" r="10" opacity="0.42" />
+    <circle cx="700" cy="546" r="11" opacity="0.4" />
   </g>
 
-  <rect x="100" y="100" width="824" height="824" rx="185" fill="none"
-        stroke="#ffffff" stroke-opacity="0.14" stroke-width="3" />
+  <!-- ── The far ear, behind the head ───────────────────────────────────── -->
+  <circle cx="236" cy="304" r="52" fill="url(#furBack)" />
+
+  <!-- ── Head, in profile facing right ──────────────────────────────────── -->
+  <path d="M230 400
+           C230 330 275 292 340 288
+           C400 284 448 310 486 352
+           C512 382 536 404 548 418
+           C557 428 553 441 540 445
+           C520 452 500 452 482 448
+           C450 470 400 487 344 485
+           C278 483 230 452 230 400 Z"
+        fill="url(#fur)" />
+
+  <!-- Near ear. Big and round — the most recognizable thing about the
+       silhouette after the snout. -->
+  <circle cx="302" cy="300" r="64" fill="url(#fur)" />
+  <circle cx="304" cy="303" r="41" fill="url(#skin)" />
+
+  <!-- Eye, shut and arched upward. This single curve is the whole
+       expression: an arch reads as bliss, a downward curve reads as asleep. -->
+  <path d="M384 358 Q410 334 436 358" fill="none" stroke="#39414f"
+        stroke-width="11" stroke-linecap="round" />
+  <path d="M396 324 Q414 314 434 322" fill="none" stroke="#59667c"
+        stroke-width="7" stroke-linecap="round" opacity="0.75" />
+
+  <!-- Nose -->
+  <ellipse cx="545" cy="424" rx="15" ry="12" fill="#d0808c" />
+
+  <!-- Buck teeth, just showing past the lip before the spoon covers them. -->
+  <path d="M500 442 h14 v22 q0 7 -7 7 t-7 -7 z" fill="#fdfaf4" />
+  <path d="M516 442 h14 v20 q0 7 -7 7 t-7 -7 z" fill="#f2ece1" />
+
+  <!-- Whiskers, swept back and away from the spoon. -->
+  <g fill="none" stroke="#4d5a70" stroke-width="4.5" stroke-linecap="round" opacity="0.55">
+    <path d="M528 424 Q600 408 652 384" />
+    <path d="M532 434 Q608 434 662 424" />
+  </g>
+
+  <!-- ── The spoon, at his mouth ─────────────────────────────────────────
+       Rotated +28 so the handle runs down-right into the paw. Rotating the
+       other way sends it up-right and the arm no longer reaches it. -->
+  <g transform="rotate(28 566 494)">
+    <ellipse cx="566" cy="494" rx="61" ry="43" fill="url(#metal)" />
+    <ellipse cx="566" cy="492" rx="43" ry="28" fill="url(#broth)" />
+    <path d="M616 482 L742 484 q16 1 16 10 t-16 10 L616 506 Z" fill="url(#metal)" />
+  </g>
+
+  <!-- Forearm up from the bottom of the frame, tapering toward the wrist —
+       a constant-width limb reads as a tube. Then the pink paw closed around
+       the handle end at (740, 575). -->
+  <path d="M648 820 C656 724 678 656 708 600 L762 622 C736 682 722 744 718 820 Z"
+        fill="url(#fur)" />
+  <ellipse cx="734" cy="566" rx="50" ry="42" fill="url(#skin)"
+           transform="rotate(28 734 566)" />
+  <g fill="none" stroke="#c07d88" stroke-width="5" stroke-linecap="round" opacity="0.7">
+    <path d="M708 544 Q722 560 712 576" />
+    <path d="M732 534 Q748 552 738 570" />
+    <path d="M754 546 Q766 562 756 580" />
+  </g>
+  <ellipse cx="716" cy="546" rx="16" ry="11" fill="#f7cdd2" opacity="0.55"
+           transform="rotate(28 716 546)" />
 </svg>
